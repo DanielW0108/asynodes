@@ -1,0 +1,10 @@
+Asymptote library for TikZ-style "nodes".
+
+Nodes contain text or pictures, bordered by a path, optionally with a filled background.
+The contents and border path of a node cannot be changed after creation, but nodes can be moved and drawn onto a picture multiple times.
+Nodes can return anchors corresponding to an arbitrary point along the border path, and be moved to an absolute position or moved relative to another node.
+Nodes can also fetch paths between their own bounding paths and the bounding paths of other nodes.
+
+To install, place nodes.asy in your %ASYMPTOTE_HOME directory (by default, ~\.asy).
+
+See the "doc" folder for documentation.
