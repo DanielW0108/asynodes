@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-uk" xml:lang="en-uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Nodes</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Nodes</h1>
+</header>
+<style>
+body { min-width: 80% !important; }
+</style>
+<h1 id="full-list-of-fields-and-methods">Full list of fields and methods</h1>
+<h2 id="fields">Fields</h2>
+<p>All fields inside nodes are marked as restricted and can’t be set directly, but can be read from.</p>
+<h3 id="restricted-picture-contents"><code>restricted picture contents</code></h3>
+<p>The picture stored inside the node, added to the current picture when <code>stamp()</code> is called.</p>
+<h3 id="restricted-pair-midpoint"><code>restricted pair midPoint</code></h3>
+<p>The point in the coordinate system of the current picture at which the node will be centred when <code>stamp()</code> is called.</p>
+<p>If an explicit parameter is given, as in <code>stamp(pic)</code>, the node will appear at this point in the coordinate system of pic.</p>
+<p>The “node centre” refers to the point at <code>(0, 0)</code> in the coordinate system of <code>contents</code>. When building a node from a picture, you have the option to manually indicate where this point should be. This does not need to be the exact centre, but it does need to be a point within <code>contents</code>.</p>
+<h3 id="restricted-path-absbox"><code>restricted path absBox</code></h3>
+<p>The border path expressed in the coordinates it would have if stamped. This is what you want to use for drawing paths between nodes after positioning them.</p>
+<h3 id="restricted-path-relbox"><code>restricted path relBox</code></h3>
+<p>The border path expressed in the coordinates used by contents. Mostly used internally.</p>
+<h2 id="constructors">Constructors</h2>
+<p>Parameters written as assignments, such as <code>pair pos = (0, 0)</code> , indicate optional named parameters. These will take the given default value if not written during a function call, and can be passed values by name.</p>
+<p>The following are all equivalent:</p>
+<p><code>Node("foo"); == Node("foo", (0, 0)); == Node("foo", pos=(0, 0));</code></p>
+<h3 id="building-a-node-from-a-string">Building a node from a string</h3>
+<pre><code>  void operator init(string s, pen labelpen = currentpen, 
+    real xmargin = 3, real ymargin = xmargin, 
+    pathtransform shape = pathid, 
+    pen draw = invisible, pen fill = invisible,
+    pair pos = (0,0)) </code></pre>
+<p>A node will be created whose contents is the LaTeX-formatted string <code>s</code>, which will appear centred at the point <code>pos</code> when stamped. Doing anything to confuse Asymptote about the size of <code>s</code>, such as using inline mode, will break this.</p>
+<p><strong><code>labelpen</code>, <code>draw</code>, and <code>fill</code>:</strong><br />
+The <code>labelpen</code> determines the font, size, and colour used by the label generated from <code>s</code>. The <code>draw</code> and <code>fill</code> pens are used for drawing and filling the bounding path. More information about pens can be found in the Asymptote documentation for <a href="https://asymptote.sourceforge.io/doc/Pens.html">Pens</a>.</p>
+<p><strong><code>xmargin</code> and <code>ymargin</code>:</strong><br />
+The margins are the distance between the borders of the label generated from <code>s</code> and the path <code>absBox</code>. By default both will be equal, so only setting <code>xmargin</code> will set both <code>xmargin</code> and <code>ymargin</code>.</p>
+<p><strong><code>shape</code>:</strong><br />
+The <code>shape</code> parameter requires a function from <code>path</code> to <code>path</code>, expressed by the <code>pathtransform</code> type. The input to a <code>pathtransform</code> will always be the return value of the Asymptote <code>box</code> function described in <a href="https://asymptote.sourceforge.io/doc/Frames-and-pictures.html">Frames and Pictures</a>.</p>
+<h3 id="building-a-node-from-a-picture">Building a node from a picture</h3>
+<pre><code>  void operator init(picture pic,
+    real xmargin=3, real ymargin = xmargin, pair midpoint = (0, 0),
+    pathtransform shape = pathid, 
+    pen draw = invisible, pen fill = invisible,
+    pair pos = (0, 0))</code></pre>
+<p>If a node’s contents are too complicated to express as a LaTeX string, you can build a picture first and subsequently use that as the contents of a node.</p>
+<p>The <code>fill</code> pen will render behind <code>pic</code>, so it will not overwrite any uses of <code>fill</code> inside <code>pic</code>.</p>
+<p>By default, the node’s contents will have the same coordinate system as <code>pic</code>. Setting <code>midPoint</code> will shift the contents until <code>(0, 0)</code> in the final node is equal to <code>midpoint</code> in <code>pic</code>.</p>
+<h2 id="methods">Methods</h2>
+<h3 id="pair-anchorpair-vec-bool-relative-false"><code>pair anchor(pair vec, bool relative = false)</code></h3>
+<p>Get a point on the <code>absBox</code>(or <code>relBox</code> if <code>relative</code>) by following a line extending from the node centre through point <code>vec</code>. There are no size restrictions on the vector, but it cannot be <code>(0, 0)</code>.</p>
+<p>This can be called with the pre-defined cardinal vectors <code>north</code>, <code>south</code>, <code>east</code>, and <code>west</code>, including the use of Asymptote’s operations on pairs. <code>anchor(north + west)</code> will give a point precisely northwest of the centre, which is unlikely to be the top left corner.</p>
+<h3 id="pair-topleft"><code>pair topLeft()</code></h3>
+<h3 id="pair-topright"><code>pair topRight()</code></h3>
+<h3 id="pair-bottomleft"><code>pair bottomLeft()</code></h3>
+<h3 id="pair-bottomright"><code>pair bottomRight()</code></h3>
+<p>These fetch the “corners” of the <code>absBox</code> without regard to its shape. More precisely, they fetch the point on the <code>absBox</code> that intersects with the line from the node centre through the corner of <code>contents</code>.</p>
+<h3 id="pair-degreeanchor-real-degrees-bool-relative-false"><code>pair degreeAnchor (real degrees, bool relative = false)</code></h3>
+<p>Get an anchor using degrees. Pairs in Asymptote are treated as complex numbers, so degrees are measured as though on an Argand diagram: anticlockwise from the right.</p>
+<h3 id="real-radiuspair-vec"><code>real radius(pair vec)</code></h3>
+<p>Get the distance from the node centre to <code>anchor(vec)</code>.</p>
+<h3 id="void-movetopair-p"><code>void moveTo(pair p)</code></h3>
+<p>Move the <code>midPoint</code> to <code>p</code> and update the <code>absBox</code> accordingly.</p>
+<h3 id="path-movenexttonode-n-pair-dist-1cm-0"><code>path moveNextTo(Node n, pair dist = (1cm, 0))</code></h3>
+<h3 id="path-movenexttopair-dist-1cm-0-...-node-nodes"><code>path moveNextTo(pair dist = (1cm, 0) ... Node[] nodes)</code></h3>
+<h3 id="path-movenexttonode-n-pair-thisanchor-pair-otheranchor-pair-dist-1cm-0"><code>path moveNextTo(Node n, pair thisAnchor, pair otherAnchor, pair dist = (1cm, 0))</code></h3>
+<p>Move this node such that</p>
+<ol type="1">
+<li>Its <code>absBox</code> is <code>dist</code> away from <code>n.absBox</code>, or</li>
+<li>Its <code>absBox</code> is <code>dist</code> away from the box around all of <code>nodes</code>, or</li>
+<li>The point <code>this.anchor(thisAnchor)</code> is <code>dist</code> away from the point <code>n.anchor(otherAnchor)</code>,</li>
+</ol>
+<p>and return the path between the two boxes.</p>
+<p>This will throw an error if <code>dist</code> is <code>(0, 0)</code>.</p>
+<h3 id="void-movetouchingnode-n-pair-dir-1-0"><code>void moveTouching(Node n, pair dir = (1, 0))</code></h3>
+<p>Move this node such that <code>anchor(dir)</code> is touching <code>n.absBox</code>.</p>
+<h3 id="path-pathtonode-n"><code>path pathTo(Node n)</code></h3>
+<p>Return the path that would be returned by <code>moveNextTo(n)</code>, but without moving this node.</p>
+<h3 id="void-stamppicture-pic-currentpicture"><code>void stamp(picture pic = currentpicture)</code></h3>
+<p>Add this node’s contents and <code>absBox</code> to <code>pic</code>.</p>
+<h3 id="void-transformtransform-t"><code>void transform(transform t)</code></h3>
+<p>This successfully applies <em>some</em> transforms to node contents. It is unfinished and liable to do strange things.</p>
+</body>
+</html>
