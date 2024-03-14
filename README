@@ -5,6 +5,7 @@ The contents and border path of a node cannot be changed after creation, but nod
 Nodes can return anchors corresponding to an arbitrary point along the border path, and be moved to an absolute position or moved relative to another node.
 Nodes can also fetch paths between their own bounding paths and the bounding paths of other nodes.
 
-To install, place nodes.asy in your %ASYMPTOTE_HOME directory (by default, ~\.asy).
+Running "make" will place nodes.asy and the docs folder in your %ASYMPTOTE_HOME directory (if undefined, ~\.asy).
+Equivalently, you can clone the repo into your .asy folder directly. No compilation is required.
 
 See the "doc" folder for documentation.
